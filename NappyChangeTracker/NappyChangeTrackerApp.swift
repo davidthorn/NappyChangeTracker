@@ -2,16 +2,22 @@
 //  NappyChangeTrackerApp.swift
 //  NappyChangeTracker
 //
-//  Created by David Thorn on 13.02.26.
+//  Created by David Thorn on 13.02.2026.
 //
 
 import SwiftUI
 
 @main
-struct NappyChangeTrackerApp: App {
-    var body: some Scene {
+internal struct NappyChangeTrackerApp: App {
+    internal let serviceContainer: ServiceContainerProtocol
+
+    internal init() {
+        self.serviceContainer = AppServiceContainer(nappyChangeService: InMemoryNappyChangeService())
+    }
+
+    internal var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(serviceContainer: serviceContainer)
         }
     }
 }

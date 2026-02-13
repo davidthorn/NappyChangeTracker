@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  HistoryScene.swift
 //  NappyChangeTracker
 //
 //  Created by David Thorn on 13.02.2026.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-internal struct ContentView: View {
+internal struct HistoryScene: View {
     internal let serviceContainer: ServiceContainerProtocol
 
     internal init(serviceContainer: ServiceContainerProtocol) {
@@ -15,15 +15,10 @@ internal struct ContentView: View {
     }
 
     internal var body: some View {
-        TabView {
-            DashboardScene(serviceContainer: serviceContainer)
-                .tabItem {
-                    Label("Dashboard", systemImage: "house")
-                }
-
-            HistoryScene(serviceContainer: serviceContainer)
-                .tabItem {
-                    Label("History", systemImage: "list.bullet")
+        NavigationStack {
+            NappyChangeHistoryView(serviceContainer: serviceContainer)
+                .navigationDestination(for: NappyChangeEditorMode.self) { mode in
+                    NappyChangeEditorView(serviceContainer: serviceContainer, mode: mode)
                 }
         }
     }
@@ -32,6 +27,6 @@ internal struct ContentView: View {
 #if DEBUG
 #Preview {
     let container: AppServiceContainer = AppServiceContainer(nappyChangeService: InMemoryNappyChangeService())
-    ContentView(serviceContainer: container)
+    HistoryScene(serviceContainer: container)
 }
 #endif
