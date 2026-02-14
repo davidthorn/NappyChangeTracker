@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-internal struct DashboardScene: View {
-    internal let serviceContainer: ServiceContainerProtocol
+struct DashboardScene: View {
+    let serviceContainer: ServiceContainerProtocol
 
-    internal init(serviceContainer: ServiceContainerProtocol) {
+    init(serviceContainer: ServiceContainerProtocol) {
         self.serviceContainer = serviceContainer
     }
 
-    internal var body: some View {
+    var body: some View {
         NavigationStack {
             DashboardView(serviceContainer: serviceContainer)
                 .navigationDestination(for: NappyChangeEditorMode.self) { mode in

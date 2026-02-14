@@ -12,12 +12,12 @@ import Foundation
 internal final class NappyChangeEditorViewModel: ObservableObject {
     @Published internal var draft: NappyChangeDraft
 
-    internal let service: any NappyChangeServiceProtocol
+    internal let service: NappyChangeServiceProtocol
     internal let mode: NappyChangeEditorMode
     internal var persistedID: UUID?
     internal var originalDraft: NappyChangeDraft?
 
-    internal init(service: any NappyChangeServiceProtocol, mode: NappyChangeEditorMode) {
+    internal init(service: NappyChangeServiceProtocol, mode: NappyChangeEditorMode) {
         self.service = service
         self.mode = mode
         self.draft = .default

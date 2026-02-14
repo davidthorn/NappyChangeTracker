@@ -62,7 +62,9 @@ internal struct DashboardView: View {
 #if DEBUG
 #Preview {
     let container: AppServiceContainer = AppServiceContainer(nappyChangeService: InMemoryNappyChangeService())
-    NavigationStack {
+    
+    
+    return NavigationStack {
         DashboardView(serviceContainer: container)
     }
 }

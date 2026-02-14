@@ -8,5 +8,5 @@
 import Foundation
 
 internal protocol ServiceContainerProtocol {
-    var nappyChangeService: any NappyChangeServiceProtocol { get }
+    var nappyChangeService: NappyChangeServiceProtocol { get }
 }

@@ -8,9 +8,9 @@
 import Foundation
 
 internal struct AppServiceContainer: ServiceContainerProtocol {
-    internal let nappyChangeService: any NappyChangeServiceProtocol
+    internal let nappyChangeService: NappyChangeServiceProtocol
 
-    internal init(nappyChangeService: any NappyChangeServiceProtocol) {
+    internal init(nappyChangeService: NappyChangeServiceProtocol) {
         self.nappyChangeService = nappyChangeService
     }
 }

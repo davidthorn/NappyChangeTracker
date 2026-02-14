@@ -12,10 +12,10 @@ import Foundation
 internal final class NappyChangeHistoryViewModel: ObservableObject {
     @Published internal private(set) var changes: [NappyChange]
 
-    internal let service: any NappyChangeServiceProtocol
+    internal let service: NappyChangeServiceProtocol
     internal var observationTask: Task<Void, Never>?
 
-    internal init(service: any NappyChangeServiceProtocol) {
+    internal init(service: NappyChangeServiceProtocol) {
         self.service = service
         self.changes = []
     }
